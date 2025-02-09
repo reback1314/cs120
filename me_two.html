@@ -2,13 +2,323 @@
 
 <html>
 
-<head> 
-    <meta charset = "utf-8"> 
-    <title>Me Two</title> 
- </head> 
+<meta charset="utf-8">
+<title>Me_Tow</title>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style type="text/css">
+        /* 1-Font */
+        body {
+            font-family: 'Noto Serif', sans-serif;
+        }
+
+        /* 2-Color and Size */
+        h1 {
+            color: #57987B;
+            font-size: 50px;
+            margin-bottom: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            color: #864B4C;
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 200;
+        }
+
+        /* 3-Box */
+        #name-box {
+            padding: 0, 15px, 0, 15px;
+            border: 3px solid #864B4C;
+            margin: 20px auto;
+
+            width: 200px;
+            background-color: #e6e2d5;
+        }
+
+        /* 4-Image */
+        #food-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .image {
+            background-image: url("images/sashimi.jpg");
+            width: 30%;
+            padding-bottom: 15%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .text {
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 100%;
+        }
+
+        /* 5-Table Background Color */
+        table tr:nth-child(odd) {
+            background-color: #ebf5f0;
+        }
+
+        table tr:nth-child(even) {
+            background-color: white;
+        }
+
+        table tr:first-child {
+            background-color: #bec2c0;
+            font-weight: bold;
+        }
+
+        /* 6-Form */
+        #form-box {
+            width: 25%;
+            border: 1px solid grey;
+        }
+
+        select,
+        input {
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100px;
+        }
+
+        form div {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        /* 7-Icon */
+        #icon {
+            position: fixed;
+            top: 100px;
+            right: 35px;
+        }
+
+        #icon img {
+            width: 40%;
+            height: 40%;
+        }
+    </style>
+</head>
+
 
 <body>
-    <h1>Coming Soon</h1>
+    <!-- Name -->
+    <h1>Yi Hu</h1>
+    <hr />
+
+    <!-- Trip -->
+    <h2>Trip or Getaway</h2>
+    <p>
+        This summer, I accompanied my family on a two-week tour of several cities in the eastern United States,
+        including New York, Philadelphia, and Washington. We visited the Statue of Liberty, Central Park, the
+        Metropolitan Museum of Art, the Independence Palace, the Lincoln Memorial, the White House and other classic
+        attractions, which made me appreciate the rich history and culture of the United States, the diversified art
+        atmosphere, and the prosperity and vitality of the modern city. This trip not only broadened my horizons, but
+        also gave me a better understanding of America's past and present.
+    </p>
+    <hr />
+
+    <!-- Pet -->
+    <h2>Favorite Pet Names</h2>
+    <ul id='name-box'>
+        <li>A cat named Tom</li>
+        <li>A mouse named Jerry</li>
+        <li>A dog named Spike</li>
+    </ul>
+    <hr />
+
+    <!-- Restaurant  -->
+    <h2>Favorite Restaurant</h2>
+    <p>
+        My favorite restaurant is:
+        <a href="https://www.santouka-usa.com/locations" target="_blank">Santouka</a>
+    <p>
+        I really like Hokkaido Ramen Yamato, mainly because its soup base is really heartfelt, made with pork bone
+        simmered for a long time, which is flavourful without being too heavy to drink. Its ramen is lighter and
+        healthier, with good salt control, so it's not much of a burden to eat. The founder has always insisted on
+        making ramen that is suitable for the whole family, a philosophy that one finds quite thoughtful.
+    </p>
+    </p>
+    <hr />
+
+    <!-- Food -->
+    <h2>Favorite Food</h2>
+    <div id="food-box">
+        <div class="image"></div>
+        <div class="text">
+            <p>
+                My favourite food is the sashimi platter, which I like to arrange on a delicate tray with some
+                decorative shiso leaves, shredded white radish and lemon slices, which is both aesthetically pleasing
+                and enhances the taste. When I eat it, I like to dip it in a little soy sauce and wasabi first, then
+                slowly savour the fresh sweetness and delicacy of each piece of sashimi. Salmon is fatty, tuna is tender
+                and sweet prawns are fresh and sweet, and each sashimi has a unique taste that lingers in your mouth.
+                After eating a few slices of sashimi, a refreshing bite of sliced ginger clears the palate and enhances
+                the taste experience. To finish, a glass of chilled sake is the perfect treat!
+            </p>
+        </div>
+    </div>
+    <hr />
+
+    <!-- Books -->
+    <h2>Favorite Books</h2>
+    <table border="1" cellpadding="4" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Author</th>
+            <th>Summary</th>
+        </tr>
+        <tr>
+            <td>Walden</td>
+            <td><img src="images/Walden.jpg" alt="Steve Jobs Book Cover" height="150"></td>
+            <td>Henry David Thoreau</td>
+            <td>This book encourages readers to think independently, not to follow the crowd, and to pursue a life that
+                is truly their own. It inspires readers to think more clearly about themselves and the world around
+                them!
+            </td>
+        </tr>
+        <tr>
+            <td>The Metamorphosis</td>
+            <td><img src="images/The Metamorphosis.jpg" alt="Steve Jobs Book Cover" height="150"></td>
+            <td>Franz Kafka</td>
+            <td>Through the absurd metamorphosis of Gregor Samsa, this book guides the reader to think about human
+                nature, loneliness and social alienation. It inspires readers to reflect on their self-identity and
+                social relationships, making us more conscious of our place in the world.
+            </td>
+        </tr>
+        <tr>
+            <td>The Power of Now</td>
+            <td><img src="images/The Power of Now.jpg" alt="Steve Jobs Book Cover" height="150"></td>
+            <td>Eckhart Tolle</td>
+            <td>This book encourages readers to get rid of attachments to the past and future, focus on each moment in
+                the present, and find true peace and freedom by becoming aware of their hearts. It stimulates the
+                reader's inner awareness and gives us a clearer understanding of our emotions and thought patterns so
+                that we can live a more fulfilling life.
+            </td>
+        </tr>
+        <tr>
+            <td>How the Steel Was Tempered</td>
+            <td><img src="images/How the Steel Was Tempered.jpg" alt="Steve Jobs Book Cover" height="150"></td>
+            <td>Nikolai Ostrovsky</td>
+            <td>Through the growth story of the main character, Paul Kochagin, this book encourages readers to remain
+                resilient in the face of difficulties and setbacks, and to pursue their ideals and beliefs. It inspires
+                readers' fighting spirit and gives us a deeper understanding of the meaning of perseverance and
+                struggle.
+            </td>
+        </tr>
+    </table>
+    <hr />
+
+    <!-- 6-Form -->
+    <h2>Information Form</h2>
+    <div id="form-box">
+
+        <form action="#" method="get">
+            <div>
+                <h3>Welcome!</h3>
+            </div>
+
+            <div>
+                <label for="first-name">First Name:</label>
+                <input type="text">
+            </div>
+
+            <div>
+                <label for="last-name">Last Name:</label>
+                <input type="text">
+            </div>
+
+            <div>
+                <label for="city">City:</label>
+                <input type="text">
+            </div>
+
+            <div>
+                <label for="state">State:</label>
+                <select>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>Arizona</option>
+                    <option>Arkansas</option>
+                    <option>California</option>
+                    <option>Colorado</option>
+                    <option>Connecticut</option>
+                    <option>Delaware</option>
+                    <option>Florida</option>
+                    <option>Georgia</option>
+                    <option>Hawaii</option>
+                    <option>Idaho</option>
+                    <option>Illinois</option>
+                    <option>Indiana</option>
+                    <option>Iowa</option>
+                    <option>Kansas</option>
+                    <option>Kentucky</option>
+                    <option>Louisiana</option>
+                    <option>Maine</option>
+                    <option>Maryland</option>
+                    <option>Massachusetts</option>
+                    <option>Michigan</option>
+                    <option>Minnesota</option>
+                    <option>Mississippi</option>
+                    <option>Missouri</option>
+                    <option>Montana</option>
+                    <option>Nebraska</option>
+                    <option>Nevada</option>
+                    <option>New Hampshire</option>
+                    <option>New Jersey</option>
+                    <option>New Mexico</option>
+                    <option>New York</option>
+                    <option>North Carolina</option>
+                    <option>North Dakota</option>
+                    <option>Ohio</option>
+                    <option>Oklahoma</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Rhode Island</option>
+                    <option>South Carolina</option>
+                    <option>South Dakota</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Utah</option>
+                    <option>Vermont</option>
+                    <option>Virginia</option>
+                    <option>Washington</option>
+                    <option>West Virginia</option>
+                    <option>Wisconsin</option>
+                    <option>Wyoming</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <!-- 7-Icon -->
+    <div>
+        <div id="icon">
+            <a href="http://facebook.com" target="_blank"><img src="images/facebook_icon.png" alt="Facebook"></a>
+            <a href="http://twitter.com" target="_blank"><img src="images/twitter_icon.png" alt="Twitter"></a>
+        </div>
+    </div>
 </body>
 
 </html>
