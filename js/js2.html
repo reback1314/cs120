@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+</head>
+
+<body>
+    <script>
+        let fahrenheitTemperature = prompt("Enter temperature in Fahrenheit:");
+        if (isNaN(fahrenheitTemperature))
+            alert("Invalid Fahrenheit Input!");
+        else
+            alert("Temperature in Celsius is: " + ((fahrenheitTemperature - 32) * 5 / 9).toFixed(2));
+
+        let celsiusTemperature = prompt("Enter temperature in Celsius:");
+        if (isNaN(celsiusTemperature))
+            alert("Invalid Celsius Input!");
+        else
+            alert("Temperature in Fahrenheit is: " + (celsiusTemperature * 9 / 5 + 32).toFixed(2));
+    </script>
+</body>
+
+</html>

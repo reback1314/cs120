@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+
+<body>
+    <script>
+        let num1 = prompt("Enter number1:");
+        let num2 = prompt("Enter number2:");
+        if (isNaN(num1) || isNaN(num2))
+            alert("Invalid Celsius Input!");
+
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        let small, large;
+        if (num1 >= num2) {
+            small = num2;
+            large = num1;
+        }
+        else {
+            small = num1;
+            large = num2;
+        }
+
+        let oddNums = [];
+        let sumNums = 0;
+        for (let i = small; i <= large; i++) {
+            if (i % 2 == 1) {
+                oddNums.push(i);
+            }
+            sumNums += i;
+        }
+
+        document.write("Odd: " + oddNums + "<br>");
+        document.write("Sum: " + sumNums);
+    </script>
+</body>
+
+</html>
