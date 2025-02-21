@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Fandom Band</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* 三个块布局 */
+    .product-area {
+      display: flex;
+      background-color: black;
+      color: white;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 180px 80px;
+    }
+
+    .product-area div {
+      width: 400px;
+      text-align: center;
+    }
+
+    .product-area img {
+      width: 100%;
+      border-radius: 100px;
+    }
+
+    .product-area h3 {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .product-area p {
+      font-size: 14px;
+      line-height: 1.6em;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <!-- 头部 -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Anime Fandom Band Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="event.html">Event</a></li>
+        <li><a href="songs.html">Song List</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 主视觉区/横幅 -->
+  <section class="about-area">
+    <h1>We are Anime Fandom Band!</h1>
+    <!-- <h2>这里可以放一些简短的介绍文字</h2> -->
+    <p>
+      用来描述你们的xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx乐队特点或口号等
+    </p>
+    <a href="about.html" class="about-button">About us</a>
+  </section>
+
+
+
+  <!-- 三块区域：Event / Why Choose Us / Song List -->
+  <section class="product-area">
+    <div>
+      <img src="event.jpg" alt="Event Image" class="feature-img">
+      <h3>Event</h3>
+      <p>xxxxxxxxxxxxxxxxxxx</p>
+    </div>
+
+    <div>
+      <img src="gallery.jpg" alt="Gallery Image" class="feature-img">
+      <h3>Why Choose Us</h3>
+      <p>xxxxxxxxxxxxxxxxxxx</p>
+    </div>
+
+    <div>
+      <img src="songlist.jpg" alt="Song List Image" class="feature-img">
+      <h3>Song List</h3>
+      <p>xxxxxxxxxxxxxxxxxxx</p>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <section class="subscribe">
+    <p>输入您的email， 我们将定期给您发送最新咨询</p>
+    <form>
+      <input type="email" placeholder="Email Address" required>
+      <button type="submit">send</button>
+    </form>
+
+  </section>
+
+  <footer>
+    <p class="copyright">&copy; 2025 Anime Fandom Band All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>

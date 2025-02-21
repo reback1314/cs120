@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 头部导航 */
+header {
+  background-color: transparent;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+}
+
+.logo {
+  color: white;
+  position: absolute;
+  left: 120px;
+  top: 0;
+  line-height: 80px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto; 
+  vertical-align: middle; 
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+  
+nav li {
+  display: inline;
+  margin-right: 2vw;
+}
+
+nav ul {
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 80px;
+}
+  
+
+  
+
+  
+.about-area,.about-area1,.about-area2,.about-area3,.about-area4{
+  /* text-align: center; */
+  height: 40vh;
+  /* height: calc(100vh - 30px);  */
+  overflow: hidden;
+  padding: 300px 60px;
+  background-image: url('hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.about-button {
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+.about-area h1 {
+  font-size: 60px;
+}
+
+.about-area p {
+  color: antiquewhite;
+  font-size: 30px;
+  margin: 50px 0;
+}
+
+  
+  /* 三个块布局 */
+.product-area {
+  display: flex;
+  background-color: #8d8e8e;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 180px 80px;
+}
+
+.product-area div{
+  width: 400px;
+  text-align: center;
+}
+
+.product-area img {
+  width: 100%;
+  border-radius: 100px;
+}
+
+.product-area h3 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.product-area p {
+  font-size: 14px;
+  line-height: 1.6em;
+}
+
+
+
+.subscribe {
+  background-color: #000000;
+  color: #B7B7B7;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscribe p {
+  margin-bottom: 20px;
+}
+
+.subscribe input, .subscribe button {
+  background-color: transparent;
+  color: #B7B7B7;
+  border: 1px solid #B7B7B7;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.copyright {
+  background-color: #000000;
+  color: #B7B7B7;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
