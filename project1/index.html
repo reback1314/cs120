@@ -16,11 +16,15 @@
       justify-content: space-between;
       align-items: center;
       padding: 100px 180px 80px;
+
+      flex-wrap: wrap;
     }
 
     .product-area div {
       width: 400px;
       text-align: center;
+
+      margin: 20px;
     }
 
     .product-area img {
@@ -37,6 +41,223 @@
       font-size: 14px;
       line-height: 1.6em;
     }
+
+    
+
+
+    
+/* 头部导航 */
+header {
+  background-color: transparent;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+}
+
+.logo {
+  color: white;
+  position: absolute;
+  left: 120px;
+  top: 0;
+  line-height: 80px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto; 
+  vertical-align: middle; 
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+  
+nav li {
+  display: inline;
+  margin-right: 2vw;
+}
+
+nav ul {
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 80px;
+}
+  
+
+  
+
+  
+.about-area,.about-area1,.about-area2,.about-area3,.about-area4{
+  /* text-align: center; */
+  height: 40vh;
+  /* height: calc(100vh - 30px);  */
+  overflow: hidden;
+  padding: 300px 60px;
+  background-image: url('hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.about-button {
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+.about-area h1 {
+  font-size: 60px;
+}
+
+/* .about-area p {
+  color: antiquewhite;
+  font-size: 30px;
+  margin: 50px 0;
+} */
+
+.about-area p {
+  color: antiquewhite;
+  font-size: 30px;
+  margin: 50px 0;
+  max-width: 80%; /* Limit the width of text */
+  word-wrap: break-word; /* Enable word wrapping */
+  white-space: normal; /* Allow text to wrap */
+  line-height: 1.4; /* Add some line spacing */
+}
+
+/* Update mobile styles */
+@media screen and (max-width: 768px) {
+  .about-area p {
+    font-size: 20px;
+    max-width: 90%; /* Allow more width on mobile */
+    margin: 30px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-area p {
+    font-size: 16px;
+    max-width: 95%; /* Even more width on smaller screens */
+  }
+}
+
+
+
+
+
+
+
+/* For screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  /* Header navigation adjustments */
+  header {
+    height: auto;
+    padding: 10px 0;
+    position: static; /* Remove fixed positioning */
+    background-color: black; /* Add background color for visibility */
+  }
+
+  .logo {
+    position: static;
+    text-align: center;
+    display: block;
+    line-height: normal;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    position: static;
+    text-align: center;
+    line-height: normal;
+    padding: 10px 0;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* Main banner area adjustments */
+  .about-area {
+    padding: 100px 20px; /* Reduced top padding since header is no longer overlapping */
+    text-align: center;
+    height: auto; /* Allow height to be flexible */
+    min-height: 40vh; /* Maintain minimum height */
+  }
+
+  .about-area h1 {
+    font-size: 36px;
+  }
+
+  .about-area p {
+    font-size: 18px;
+    margin: 30px 0;
+  }
+
+  /* Product area adjustments */
+  .product-area {
+    padding: 50px 20px;
+  }
+
+  .product-area div {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .product-area img {
+    border-radius: 50px;
+  }
+
+  /* Subscribe section adjustments */
+  .subscribe {
+    padding: 20px;
+  }
+
+  .subscribe form {
+    flex-direction: column;
+  }
+
+  .subscribe input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* For screens smaller than 480px */
+@media screen and (max-width: 480px) {
+  .about-area h1 {
+    font-size: 28px;
+  }
+
+  .about-area p {
+    font-size: 16px;
+  }
+
+  .product-area h3 {
+    font-size: 18px;
+  }
+
+  .product-area p {
+    font-size: 12px;
+  }
+}
+
   </style>
 </head>
 
