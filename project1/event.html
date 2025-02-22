@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .schedule-title {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        /* add line */
+        .schedule-item {
+            border-bottom: 1px solid white;
+            padding: 10px 0;
+        }
+
+        .month-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .month-button, .current-month-button {
+            text-align: center;
+            padding: 10px 15px;
+            background-color: rgb(214, 207, 207);
+            border-radius: 15px;
+            color: black;
+            font-size: 14px;
+            min-width: 120px;
+            max-width: 150px;
+        }
+
+        .current-month-button {
+            background-color: rgba(51, 51, 51, 0.5);
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .month-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpg" alt="ANIMA NOX Band Logo">
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="songs.html">Song List</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+    </header>
+
+
+    <section class="main-area">
+        <div class="month-buttons">
+            <button class="month-button">January 2025</button>
+            <button class="current-month-button">February 2025</button>
+            <button class="month-button">March 2025</button>
+            <button class="month-button">April 2025</button>
+            <button class="month-button">May 2025</button>
+            <button class="month-button">June 2025</button>
+            <button class="month-button">July 2025</button>
+            <button class="month-button">August 2025</button>
+            <button class="month-button">September 2025</button>
+            <button class="month-button">October 2025</button>
+            <button class="month-button">November 2025</button>
+            <button class="month-button">December 2025</button>
+        </div>
+
+        <div class="schedule-title">February 2025</div>
+
+        <ul class="schedule-list">
+            <li class="schedule-item">
+                <div>
+                    01 (Sat)<br>
+                    <strong>Anime Expo Global</strong><br>
+                    February 1-2, 2025<br>
+                    Los Angeles, USA<br>
+                    Los Angeles Convention Center<br>
+                </div>
+            </li>
+
+            <li class="schedule-item">
+                <div>
+                    02 (Sun)<br>
+                    <strong>Anime Expo Global</strong><br>
+                    February 1-2, 2025<br>
+                    Los Angeles, USA<br>
+                    Los Angeles Convention Center<br>
+                </div>
+            </li>
+
+            <li class="schedule-item">
+                <div>
+                    05 (Wed)<br>
+                    <strong>Paris Manga & Sci-Fi Show</strong><br>
+                    February 5-6, 2025<br>
+                    Paris, France<br>
+                    Paris Nord Villepinte Exhibition Centre<br>
+                </div>
+            </li>
+
+            <li class="schedule-item">
+                <div>
+                    08 (Sat)<br>
+                    <strong>Comic Fiesta Kuala Lumpur</strong><br>
+                    February 8, 2025<br>
+                    Kuala Lumpur, Malaysia<br>
+                    Kuala Lumpur Convention Centre<br>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+    <footer>
+        <p class="copyright">&copy; 2025 Anime Fandom Band All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

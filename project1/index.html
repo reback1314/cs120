@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home page</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .product-area {
+      display: flex;
+      background-color: black;
+      color: white;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 180px 80px;
+    }
+
+    .product-area div {
+      width: 400px;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .product-area img {
+      width: 100%;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+
+    .product-area h3 {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .product-area p {
+      font-size: 14px;
+      line-height: 1.6em;
+    }
+
+    .subscribe {
+      background-color: black;
+      color: #B7B7B7;
+      padding: 60px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .subscribe p {
+      margin-bottom: 20px;
+    }
+
+    .subscribe input,
+    .subscribe button {
+      background-color: transparent;
+      color: #B7B7B7;
+      border: 1px solid #B7B7B7;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      .product-area {
+        flex-direction: column;
+        padding: 50px 20px;
+      }
+
+      .product-area div {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.jpg" alt="ANIMA NOX Band Logo">
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="event.html">Event</a></li>
+      <li><a href="songs.html">Song List</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+    </ul>
+  </header>
+
+
+  <section class="main-area">
+    <h1>We are ANIMA NOX Band!</h1>
+    <p>
+      We perform at anime music exhibitions and events. Contact us for band collaborations!
+    </p>
+    <a href="about.html" class="about-button">About us</a>
+  </section>
+
+
+  <section class="product-area">
+    <div>
+      <img src="images/event.jpg" alt="Event Image" class="feature-img" onclick="window.location.href='event.html'">
+      <h3>Event</h3>
+    </div>
+
+    <div>
+      <img src="images/gallery.jpg" alt="Gallery Image" class="feature-img"
+        onclick="window.location.href='contact.html'">
+      <h3>Contact Us</h3>
+    </div>
+
+    <div>
+      <img src="images/songlist.jpg" alt="Song List Image" class="feature-img"
+        onclick="window.location.href='songs.html'">
+      <h3>Song List</h3>
+    </div>
+  </section>
+
+
+  <section class="subscribe">
+    <p>Enter your email address and we'll send you regular updates</p>
+    <form>
+      <input type="email" placeholder="Email Address" required>
+      <button type="submit">send</button>
+    </form>
+
+  </section>
+
+
+  <footer>
+    <p class="copyright">&copy; 2025 Anime Fandom Band All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>

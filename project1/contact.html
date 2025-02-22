@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .main-area h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #form-box {
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px auto;
+            border: 1px solid grey;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        select,
+        input,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-bottom: 10px;
+            background-color: rgba(132, 131, 131, 0.5);
+        }
+
+        input[type="submit"] {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: black;
+        }
+
+        input[type="submit"]:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jpg" alt="ANIMA NOX Band Logo">
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="event.html">Event</a></li>
+            <li><a href="songs.html">Song List</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+    </header>
+
+    <section class="main-area">
+        <h2>Contact Us</h2>
+        <div id="form-box">
+            <form action="#" method="get">
+                <div>
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div>
+                    <label for="email">Your email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="phone">Your phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div>
+                    <label for="message">Your message</label>
+                    <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                </div>
+
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p class="copyright">&copy; 2025 Anime Fandom Band All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
