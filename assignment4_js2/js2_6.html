@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 6</title>
+</head>
+
+<br>
+
+<body>
+    <select name="list" id="listId" size=10 style="width: 200px;"></select> </br>
+    <input type="button" value="Add State" onclick="addState()">
+    </br></br>
+    <div id="boardId" style="border: 1px solid black; min-height: 50px; width: 200px;"></div>
+    <input type="button" value="Clear States" onclick="clearStates()">
+
+    <script>
+        const originalValue = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia"];
+        const statesList = document.getElementById('listId');
+        for (let element of originalValue) {
+            let stateOption = document.createElement('option');
+            stateOption.text = element;
+            statesList.add(stateOption);
+        }
+        statesList.options[0].selected = true;
+
+
+        function addState() {
+            const list = document.getElementById('listId');
+            const board = document.getElementById('boardId');
+            const stateDiv = document.createElement('div');
+            stateDiv.textContent = list.options[list.selectedIndex].text;
+            board.appendChild(stateDiv);
+        }
+
+        function clearStates() {
+            document.getElementById('boardId').innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

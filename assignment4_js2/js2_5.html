@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 5</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            document.getElementById("helloId").onclick = function () { speak(this.value); }
+            document.getElementById("goodbyeId").onclick = function () { speak(this.value); }
+            document.getElementById("greetingsId").onclick = function () { speak(this.value); }
+        }
+
+        function speak(prefix) {
+            alert(prefix + " " + document.getElementById("nameId").value);
+        }
+    </script>
+
+    <form>
+        <label for="name">User's name: </label>
+        <input type="text" id="nameId"><br>
+        <input type="button" id="helloId" value="Hello">
+        <input type="button" id="goodbyeId" value="Good Bye">
+        <input type="button" id="greetingsId" value="Greetings">
+    </form>
+
+</body>
+
+</html>

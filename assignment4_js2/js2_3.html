@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 3</title>
+</head>
+
+<body>
+    <script>
+        const names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+        var nameList = names.split(', ');
+
+        const ol = document.createElement("ol");
+
+        nameList.map(
+            name => {
+                const li = document.createElement("li");
+                li.textContent = name;
+                ol.appendChild(li);
+            });
+
+        document.body.appendChild(ol);
+    </script>
+</body>
+
+</html>

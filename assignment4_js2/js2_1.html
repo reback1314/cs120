@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 1</title>
+</head>
+
+<body>
+    <div id="answer"></div>
+
+    <script>
+        function count(arr, value) {
+            return arr.filter(num => num < value).length;
+        }
+
+        function testCount() {
+            const arr = [3, 55, 30, 28, 9, 12], value = 10;
+            document.getElementById('answer').innerHTML = "the answer is: " + count(arr, value);
+        }
+
+        testCount();
+    </script>
+</body>
+
+</html>

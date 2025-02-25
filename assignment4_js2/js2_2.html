@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+</head>
+
+<body>
+    <script>
+        var sentence = prompt("Enter sentence(spaces between words):");
+        if (isEmpty(sentence)) {
+            document.write("The number of words is: 0");
+        } else {
+            var words = sentence.split(' ');
+
+            // Filtering out trailing spaces and multi-space scenarios
+            words = words.filter(function (s) {
+                return s.length > 0;
+            });
+            document.write("The number of words is: " + words.length);
+        }
+
+        function isEmpty(str) {
+            return str === null || str === undefined || str.trim() === '';
+        }
+    </script>
+</body>
+
+</html>
