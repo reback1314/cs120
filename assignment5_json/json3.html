@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form id="filter-songs">
+        <select id="genre-select"></select>
+        <button type="button" id="filter-button">Filter</button>
+    </form>
+    <div id="display"></div>
+
+    <script>
+        let allSongs = [];
+
+        // Use $.get to read the songs.json file
+        $(document).ready(function () {
+            $.get("songs.json", function (data) {
+                // Using set to save all genres
+                allSongs = data.songs;
+                songSet = new Set();
+                for (let song of data.songs) {
+                    for (let genre of song.genres) {
+                        songSet.add(genre);
+                    }
+                }
+
+                // Populate drop-down menus with genres
+                $("#genre-select").append(function () {
+                    let options = "";
+                    for (let genre of songSet) {
+                        options += `<option value="${genre}">${genre}</option>`;
+                    }
+                    return options;
+                });
+            });
+
+            // Bind filter button click event
+            $("#filter-button").click(function () {
+                let filtered = [];
+                for (let song of allSongs) {
+                    // if song has selected genre add to filtered list
+                    if (song.genres.includes($("#genre-select").val())) {
+                        filtered.push(song);
+                    }
+                }
+
+                // Show filtered list
+                const results = filtered.map(song =>
+                    `<div class="song-title">${song.title}</div>`
+                );
+                $("#display").html(results);
+            });
+        });
+    </script>
+</body>
+
+</html>

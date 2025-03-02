@@ -1,0 +1,73 @@
+{
+    "songs": [
+        {
+            "title": "Old Town Road",
+            "artist": "Lil Nas X featuring Billy Ray Cyrus",
+            "year": 2019,
+            "genres": [
+                "country",
+                "rap"
+            ]
+        },
+        {
+            "title": "Bohemian Rhapsody",
+            "artist": "Queen",
+            "year": 1975,
+            "genres": [
+                "rock",
+                "opera"
+            ]
+        },
+        {
+            "title": "Shape of You",
+            "artist": "Ed Sheeran",
+            "year": 2017,
+            "genres": [
+                "pop"
+            ]
+        },
+        {
+            "title": "Smells Like Teen Spirit",
+            "artist": "Nirvana",
+            "year": 1991,
+            "genres": [
+                "grunge",
+                "rock"
+            ]
+        },
+        {
+            "title": "Rolling in the Deep",
+            "artist": "Adele",
+            "year": 2010,
+            "genres": [
+                "pop",
+                "soul"
+            ]
+        },
+        {
+            "title": "Enter Sandman",
+            "artist": "Metallica",
+            "year": 1991,
+            "genres": [
+                "metal"
+            ]
+        },
+        {
+            "title": "Uptown Funk",
+            "artist": "Mark Ronson featuring Bruno Mars",
+            "year": 2014,
+            "genres": [
+                "funk",
+                "pop"
+            ]
+        },
+        {
+            "title": "Take Me Home, Country Roads",
+            "artist": "John Denver",
+            "year": 1971,
+            "genres": [
+                "country"
+            ]
+        }
+    ]
+}

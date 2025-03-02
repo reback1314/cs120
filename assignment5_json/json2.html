@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="display"></div>
+
+    <script>
+        // Use $.get to read the songs.json file
+        $(document).ready(function () {
+            $.get("songs.json", function (data) {
+                let content = "";
+                // Iterate through each song in the JSON data
+                for (let song of data.songs) {
+                    // Create a variable to store the HTML content
+                    content += `<h3>${song.title}</h3>`;
+                    content += `<p>Artist: ${song.artist}</p>`;
+                    content += `<p>Genre: ${song.genres.join(', ')}</p>`;
+                    content += `<p>Released ${song.year}</p>`;
+                    content += "<br>";
+                };
+
+                // Display the content in the div lable
+                $("#display").html(content);
+            });
+        });
+    </script>
+</body>
+
+</html>
