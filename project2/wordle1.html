@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Project2 Wordle</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            gap: 5px;
+            margin: 20px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+        }
+
+        .cell {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d3d6da;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            background-color: white;
+        }
+
+        .keyboard {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .key {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d3d6da;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .key[data-state="correct"] { background-color: #6aaa64; }
+        .key[data-state="present"] { background-color: #c9b458; }
+        .key[data-state="absent"] { background-color: #787c7e; }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <div class="keyboard" id="keyboard"></div>
+    <div class="input" id="input"></div>
+
+    <script>
+        const WORDS = ["APPLE", "BRAIN", "CLOUD", "DREAM", "EARTH", 
+                      "FRUIT", "GRAPE", "HONEY", "IGLOO", "JELLY",
+                      "KOALA", "LEMON", "MONEY", "NIGHT", "OCEAN",
+                      "PUPPY", "QUIET", "RIVER", "SUNNY", "TIGER",
+                      "UMBRA", "VIVID", "WATER", "XENON", "YACHT",
+                      "ZEBRA", "ALBUM", "BEACH", "CHESS", "DOGMA"];
+
+        let targetWord;
+        let currentRow = 0;
+        let currentGuess = [];
+        let gameEnded = false;
+
+        // 初始化游戏
+        function initGame() {
+            targetWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
+            currentRow = 0;
+            currentGuess = [];
+            gameEnded = false;
+            
+            // 创建网格
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            for(let i = 0; i < 6; i++) {
+                const row = document.createElement('div');
+                row.className = 'row';
+                for(let j = 0; j < 5; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    row.appendChild(cell);
+                }
+                grid.appendChild(row);
+            }
+
+            // 创建键盘
+            const keyboard = document.getElementById('keyboard');
+            keyboard.innerHTML = '';
+            const keyLayout = [
+                ['Q','W','E','R','T','Y','U','I','O','P'],
+                ['A','S','D','F','G','H','J','K','L'],
+                ['ENTER','Z','X','C','V','B','N','M','⌫']
+            ];
+            
+            keyLayout.forEach(rowKeys => {
+                const row = document.createElement('div');
+                row.className = 'keyboard-row';
+                rowKeys.forEach(key => {
+                    const button = document.createElement('button');
+                    button.className = 'key';
+                    button.textContent = key;
+                    button.addEventListener('click', () => handleKeyPress(key));
+                    row.appendChild(button);
+                });
+                keyboard.appendChild(row);
+            });
+        }
+
+        function handleKeyPress(key) {
+            if(gameEnded) return;
+
+            if(key === '⌫') {
+                if(currentGuess.length > 0) {
+                    currentGuess.pop();
+                    updateGrid();
+                }
+            } else if(key === 'ENTER') {
+                if(currentGuess.length === 5) {
+                    checkGuess();
+                }
+            } else if(currentGuess.length < 5 && /^[A-Z]$/.test(key)) {
+                currentGuess.push(key);
+                updateGrid();
+            }
+        }
+
+        function updateGrid() {
+            const rows = document.getElementsByClassName('row');
+            const cells = rows[currentRow].children;
+            for(let i = 0; i < 5; i++) {
+                cells[i].textContent = currentGuess[i] || '';
+            }
+        }
+
+        function checkGuess() {
+            const guess = currentGuess.join('');
+            const targetLetters = targetWord.split('');
+            const result = [];
+            
+            // 先检查正确位置
+            for(let i = 0; i < 5; i++) {
+                if(guess[i] === targetWord[i]) {
+                    result[i] = 'correct';
+                    targetLetters[i] = null;
+                }
+            }
+            
+            // 再检查存在但位置错误
+            for(let i = 0; i < 5; i++) {
+                if(result[i]) continue;
+                const index = targetLetters.indexOf(guess[i]);
+                if(index > -1) {
+                    result[i] = 'present';
+                    targetLetters[index] = null;
+                } else {
+                    result[i] = 'absent';
+                }
+            }
+
+            // 更新颜色
+            const rows = document.getElementsByClassName('row');
+            const cells = rows[currentRow].children;
+            const keys = document.getElementsByClassName('key');
+            
+            result.forEach((state, i) => {
+                cells[i].style.backgroundColor = 
+                    state === 'correct' ? '#6aaa64' :
+                    state === 'present' ? '#c9b458' : '#787c7e';
+                
+                Array.from(keys).forEach(key => {
+                    if(key.textContent === guess[i]) {
+                        const currentState = key.dataset.state;
+                        if(currentState !== 'correct') {
+                            key.dataset.state = state;
+                        }
+                    }
+                });
+            });
+
+            if(guess === targetWord) {
+                setTimeout(() => showResult(true), 500);
+                gameEnded = true;
+            } else if(currentRow === 5) {
+                setTimeout(() => showResult(false), 500);
+                gameEnded = true;
+            } else {
+                currentRow++;
+                currentGuess = [];
+            }
+        }
+
+        function showResult(isWin) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <h2>${isWin ? '恭喜！猜对了！' : '游戏结束！'}</h2>
+                <p>正确答案是：${targetWord}</p>
+                <button onclick="initGame()">再来一局</button>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // 键盘事件监听
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') handleKeyPress('ENTER');
+            else if(e.key === 'Backspace') handleKeyPress('⌫');
+            else if(/^[a-zA-Z]$/.test(e.key)) handleKeyPress(e.key.toUpperCase());
+        });
+
+        // 启动游戏
+        initGame();
+    </script>
+</body>
+</html>
