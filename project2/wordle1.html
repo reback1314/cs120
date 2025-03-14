@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>Project2 Wordle</title>
@@ -10,13 +11,6 @@
             align-items: center;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-rows: repeat(6, 1fr);
-            gap: 5px;
-            margin: 20px;
         }
 
         .row {
@@ -37,30 +31,45 @@
             background-color: white;
         }
 
-        .keyboard {
+        #keyboard {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .keyboard-row {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
+            /* If there is not enough space, line feed */
+            flex-wrap: wrap;
+            margin: 100px 0;
+            gap: 10px;
         }
 
         .key {
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #d3d6da;
-            cursor: pointer;
-            font-weight: bold;
+            /* key box layout */
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            margin: 3px;
+            /* center text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .key[data-state="correct"] { background-color: #6aaa64; }
-        .key[data-state="present"] { background-color: #c9b458; }
-        .key[data-state="absent"] { background-color: #787c7e; }
+        .input-container {
+            margin-top: 50px;
+        }
+
+        #word-input {
+            padding: 10px;
+        }
+
+        #submit-button {
+            border: 1px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        #enter,
+        #backspace {
+            min-width: 65px;
+        }
 
         .modal {
             position: fixed;
@@ -71,175 +80,328 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #board-grid {
+            margin-bottom: 40px;
+        }
+
+
+
+        @media (max-width: 600px) {
+            .cell {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+
+            .key {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="grid" id="grid"></div>
-    <div class="keyboard" id="keyboard"></div>
-    <div class="input" id="input"></div>
 
-    <script>
-        const WORDS = ["APPLE", "BRAIN", "CLOUD", "DREAM", "EARTH", 
-                      "FRUIT", "GRAPE", "HONEY", "IGLOO", "JELLY",
-                      "KOALA", "LEMON", "MONEY", "NIGHT", "OCEAN",
-                      "PUPPY", "QUIET", "RIVER", "SUNNY", "TIGER",
-                      "UMBRA", "VIVID", "WATER", "XENON", "YACHT",
-                      "ZEBRA", "ALBUM", "BEACH", "CHESS", "DOGMA"];
+<h1>Wordle Game</h1>
+<div id="board-grid">
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+</div></br>
 
-        let targetWord;
-        let currentRow = 0;
-        let currentGuess = [];
-        let gameEnded = false;
+<div id="keyboard">
+    <div class="key" id="used-A">A</div>
+    <div class="key" id="used-B">B</div>
+    <div class="key" id="used-C">C</div>
+    <div class="key" id="used-D">D</div>
+    <div class="key" id="used-E">E</div>
+    <div class="key" id="used-F">F</div>
+    <div class="key" id="used-G">G</div>
+    <div class="key" id="used-H">H</div>
+    <div class="key" id="used-I">I</div>
+    <div class="key" id="used-J">J</div>
+    <div class="key" id="used-K">K</div>
+    <div class="key" id="used-L">L</div>
+    <div class="key" id="used-M">M</div>
+    <div class="key" id="used-N">N</div>
+    <div class="key" id="used-O">O</div>
+    <div class="key" id="used-P">P</div>
+    <div class="key" id="used-Q">Q</div>
+    <div class="key" id="used-R">R</div>
+    <div class="key" id="used-S">S</div>
+    <div class="key" id="used-T">T</div>
+    <div class="key" id="used-U">U</div>
+    <div class="key" id="used-V">V</div>
+    <div class="key" id="used-W">W</div>
+    <div class="key" id="used-X">X</div>
+    <div class="key" id="used-Y">Y</div>
+    <div class="key" id="used-Z">Z</div>
+</div>
 
-        // 初始化游戏
-        function initGame() {
-            targetWord = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase();
-            currentRow = 0;
-            currentGuess = [];
-            gameEnded = false;
-            
-            // 创建网格
-            const grid = document.getElementById('grid');
-            grid.innerHTML = '';
-            for(let i = 0; i < 6; i++) {
-                const row = document.createElement('div');
-                row.className = 'row';
-                for(let j = 0; j < 5; j++) {
-                    const cell = document.createElement('div');
-                    cell.className = 'cell';
-                    row.appendChild(cell);
-                }
-                grid.appendChild(row);
-            }
+<div class="input-container">
+    <input type="text" id="word-input" maxlength="5" placeholder="input 5 letters">
+    <button id="submit-button">submit</button>
+</div>
 
-            // 创建键盘
-            const keyboard = document.getElementById('keyboard');
-            keyboard.innerHTML = '';
-            const keyLayout = [
-                ['Q','W','E','R','T','Y','U','I','O','P'],
-                ['A','S','D','F','G','H','J','K','L'],
-                ['ENTER','Z','X','C','V','B','N','M','⌫']
-            ];
-            
-            keyLayout.forEach(rowKeys => {
-                const row = document.createElement('div');
-                row.className = 'keyboard-row';
-                rowKeys.forEach(key => {
-                    const button = document.createElement('button');
-                    button.className = 'key';
-                    button.textContent = key;
-                    button.addEventListener('click', () => handleKeyPress(key));
-                    row.appendChild(button);
-                });
-                keyboard.appendChild(row);
-            });
+<script>
+    const targetWords = ["APPLE", "CHAIR", "DREAM", "EARTH", "FRUIT",
+        "GRAPE", "HOUSE", "HAPPY", "JELLY", "KNIFE",
+        "LEMON", "LIGHT", "MONEY", "MOUTH", "NOISE",
+        "OCEAN", "PLANT", "RIVER", "SHEEP", "SNAKE",
+        "STORY", "TABLE", "TRAIN", "WATER", "WHALE",
+        "WORLD", "YACHT", "ZEBRA"];
+    let currentRow = 0;
+    let usedLetters = new Set();
+    let letterColorMap = new Map();     // map to store letter-color pairs with priority
+    let totalGames = parseInt(getCookie('totalGames'));    // initialize game statistics from cookies
+    let totalGuessTimes = parseInt(getCookie('totalGuessTimes'));
+    let gridData = Array(6).fill().map(() => Array(5).fill(''));
+
+    // define color constants with priority values
+    const COLORS = {
+        GREEN: { value: '#6aaa64', priority: 3 },
+        GOLD: { value: '#c9b458', priority: 2 },
+        GRAY: { value: '#787c7e', priority: 1 }
+    };
+
+    // randomly choose a word from targetWords and print in console
+    let targetWord = targetWords[Math.floor(Math.random() * targetWords.length)];
+    console.log("Target word is: " + targetWord);
+
+    // get dom data
+    const wordInput = document.getElementById('word-input');
+    const submitButton = document.getElementById('submit-button');
+    const grid = document.getElementById('board-grid');
+
+    // Handling of submission events
+    submitButton.addEventListener('click', () => {
+        // check input length
+        const guess = wordInput.value.toUpperCase();
+        if (guess.length !== 5) {
+            alert('Please enter 5 letters!');
+            return;
         }
 
-        function handleKeyPress(key) {
-            if(gameEnded) return;
+        // check input characters
+        const letterRegex = /^[A-Z]+$/;
+        if (!letterRegex.test(guess)) {
+            alert('Illegal characters exist!');
+            return;
+        }
 
-            if(key === '⌫') {
-                if(currentGuess.length > 0) {
-                    currentGuess.pop();
-                    updateGrid();
+        // Check if the word is valid using the Dictionary API
+        validateWord(guess.toLowerCase())
+            .then(isValid => {
+                if (!isValid) {
+                    alert('Not an valid English word!');
+                    return;
                 }
-            } else if(key === 'ENTER') {
-                if(currentGuess.length === 5) {
-                    checkGuess();
+
+                // update current row data with input word and display on board
+
+                for (let i in guess) {
+                    gridData[currentRow][i] = guess[i];
                 }
-            } else if(currentGuess.length < 5 && /^[A-Z]$/.test(key)) {
-                currentGuess.push(key);
                 updateGrid();
-            }
-        }
 
-        function updateGrid() {
-            const rows = document.getElementsByClassName('row');
-            const cells = rows[currentRow].children;
-            for(let i = 0; i < 5; i++) {
-                cells[i].textContent = currentGuess[i] || '';
-            }
-        }
+                // check guess result
+                checkGuess(guess);
 
-        function checkGuess() {
-            const guess = currentGuess.join('');
-            const targetLetters = targetWord.split('');
-            const result = [];
-            
-            // 先检查正确位置
-            for(let i = 0; i < 5; i++) {
-                if(guess[i] === targetWord[i]) {
-                    result[i] = 'correct';
-                    targetLetters[i] = null;
+                // update keyboard
+                updateKeyboard(guess);
+
+                // empty input box
+                wordInput.value = '';
+
+                // check if win
+                if (guess === targetWord) {
+                    showGameEndModal(true);
+                    return;
                 }
-            }
-            
-            // 再检查存在但位置错误
-            for(let i = 0; i < 5; i++) {
-                if(result[i]) continue;
-                const index = targetLetters.indexOf(guess[i]);
-                if(index > -1) {
-                    result[i] = 'present';
-                    targetLetters[index] = null;
-                } else {
-                    result[i] = 'absent';
-                }
-            }
 
-            // 更新颜色
-            const rows = document.getElementsByClassName('row');
-            const cells = rows[currentRow].children;
-            const keys = document.getElementsByClassName('key');
-            
-            result.forEach((state, i) => {
-                cells[i].style.backgroundColor = 
-                    state === 'correct' ? '#6aaa64' :
-                    state === 'present' ? '#c9b458' : '#787c7e';
-                
-                Array.from(keys).forEach(key => {
-                    if(key.textContent === guess[i]) {
-                        const currentState = key.dataset.state;
-                        if(currentState !== 'correct') {
-                            key.dataset.state = state;
-                        }
-                    }
-                });
-            });
-
-            if(guess === targetWord) {
-                setTimeout(() => showResult(true), 500);
-                gameEnded = true;
-            } else if(currentRow === 5) {
-                setTimeout(() => showResult(false), 500);
-                gameEnded = true;
-            } else {
+                // update current row to next row and check if game over
                 currentRow++;
-                currentGuess = [];
+                if (currentRow >= 6) {
+                    showGameEndModal(false);
+                }
+            })
+            .catch(error => {
+                console.error('Error validating word:', error);
+                alert('Error checking word. Please try again.');
+            });
+    });
+
+    // update gridData to board-grid
+    function updateGrid() {
+        const rows = grid.getElementsByClassName('row');
+        for (let i = 0; i < rows.length; i++) {
+            const cells = rows[i].getElementsByClassName('cell');
+            for (let j = 0; j < cells.length; j++) {
+                // iterate array gridData to update board-grid
+                cells[j].textContent = gridData[i][j];
             }
         }
+    }
 
-        function showResult(isWin) {
-            const modal = document.createElement('div');
-            modal.className = 'modal';
-            modal.innerHTML = `
-                <h2>${isWin ? '恭喜！猜对了！' : '游戏结束！'}</h2>
-                <p>正确答案是：${targetWord}</p>
-                <button onclick="initGame()">再来一局</button>
-            `;
-            document.body.appendChild(modal);
+    // check guess result and update grid color
+    function checkGuess(word) {
+        const cells = grid.getElementsByClassName('row')[currentRow].getElementsByClassName('cell');
+        for (let i = 0; i < word.length; i++) {
+            // conpare input word with targetWord and fill color
+            const cell = cells[i];
+            if (word[i] === targetWord[i]) {
+                cell.style.backgroundColor = COLORS.GREEN.value;
+            } else if (targetWord.includes(word[i])) {
+                cell.style.backgroundColor = COLORS.GOLD.value;
+            } else {
+                cell.style.backgroundColor = COLORS.GRAY.value;
+            }
         }
+    }
 
-        // 键盘事件监听
-        document.addEventListener('keydown', (e) => {
-            if(e.key === 'Enter') handleKeyPress('ENTER');
-            else if(e.key === 'Backspace') handleKeyPress('⌫');
-            else if(/^[a-zA-Z]$/.test(e.key)) handleKeyPress(e.key.toUpperCase());
+    // update keyboard state
+    function updateKeyboard(word) {
+        for (let i = 0; i < word.length; i++) {
+            const letter = word[i];
+            usedLetters.add(letter);
+            const keyElement = document.getElementById(`used-${letter}`);
+
+            let fillColor;
+            // Determine the color based on letter position
+            if (letter === targetWord[i]) {
+                fillColor = COLORS.GREEN;
+            } else if (targetWord.includes(letter)) {
+                fillColor = COLORS.GOLD;
+            } else {
+                fillColor = COLORS.GRAY;
+            }
+
+            // Check if letter already has a color with higher priority
+            const currentColor = letterColorMap.get(letter);
+            if (!currentColor || currentColor.priority < fillColor.priority) {
+                letterColorMap.set(letter, fillColor);
+                keyElement.style.backgroundColor = fillColor.value;
+            }
+        }
+    }
+
+    // show game over
+    function showGameEndModal(win) {
+        // update statistics
+        const curGuessTimes = win ? currentRow + 1 : 6;
+        totalGuessTimes += curGuessTimes;
+
+        // save result to cookies
+        setCookie('totalGames', ++totalGames, 7);
+        setCookie('totalGuessTimes', totalGuessTimes, 7);
+
+        // disable input and submit button
+        wordInput.disabled = true;
+        submitButton.disabled = true;
+
+        // show result
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <h2>${win ? 'Congratulations!' : 'Game Over'}</h2>
+            <p>targetWord is: ${targetWord}</p>
+            <p>You used ${win ? curGuessTimes : 'all 6'} guesses</p>
+            <p>Average guesses: ${(totalGuessTimes / totalGames).toFixed(2)}</p>
+            <button id="restart-button" onclick="location.reload()">Restart</button>`;
+        document.body.appendChild(modal);
+
+        // Add event listener for Enter key to restart game
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                location.reload();
+            }
         });
+    }
 
-        // 启动游戏
-        initGame();
-    </script>
+    // Function to validate if a word exists in the dictionary
+    function validateWord(word) {
+        const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries1/en/${word}`;
+
+        return fetch(apiUrl)
+            .then(response => {
+                // only when netword is normal and word not found, return false
+                if (response.status === 404) {
+                    return response.json().then(data => {
+                        return data.title !== "No Definitions Found";
+                    });
+                }
+                return true;
+            })
+            .catch(error => {
+                console.log("Validation error:", error);
+                return true;
+            });
+    }
+
+    // Cookie functions for tracking game statistics
+    function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+    }
+
+    function getCookie(name) {
+        const parts = `; ${document.cookie}`.split(`; ${name}=`);
+        if (parts.length === 2)
+            return parts.pop().split(';').shift();
+        else
+            return 0;
+    }
+
+    // add event listener to input box for Enter key
+    wordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            submitButton.click();
+        }
+    });
+
+</script>
 </body>
+
 </html>
