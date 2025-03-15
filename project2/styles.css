@@ -1,0 +1,93 @@
+.main-container {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#board-grid {
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #d3d6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: white;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    border: 3px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+}
+
+#word-input {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px 30px;
+    font-size: 1.1em;
+    width: 250px;
+}
+
+#submit-button {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+#submit-button:hover {
+    background-color: #f8f8f8;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 3px solid #d3d6da;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+}
