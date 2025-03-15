@@ -91,3 +91,37 @@ h1 {
     border-radius: 20px;
     text-align: center;
 }
+
+@media (max-width: 600px) {
+    .main-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .key {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    #word-input {
+        padding: 12px 18px;
+        font-size: 1em;
+        width: 180px;
+    }
+
+    #submit-button {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+}
