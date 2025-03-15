@@ -94,34 +94,62 @@ h1 {
 
 @media (max-width: 600px) {
     .main-container {
-        padding: 5px;
+        padding: 15px;
+        width: 95%; 
     }
 
     h1 {
-        font-size: 1.8em;
-        margin-bottom: 10px;
+        font-size: 1.6em; 
+        margin-bottom: 25px;
+    }
+
+    .row {
+        gap: 5px; 
+        margin-bottom: 5px;
     }
 
     .cell {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5em;
+        border-width: 2px;
+    }
+
+    #keyboard {
+        gap: 5px; 
+        padding: 10px;
+        margin-bottom: 30px;
     }
 
     .key {
-        width: 10px;
-        height: 10px;
-        font-size: 10px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.9em;
+        border-width: 2px;
+    }
+
+    .input-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
     }
 
     #word-input {
-        padding: 6px 8px;
+        width: 100%;
+        padding: 12px;
         font-size: 1em;
-        width: 80px;
+        box-sizing: border-box;
     }
 
     #submit-button {
-        padding: 6px 8px;
+        width: 100%; 
+        padding: 12px;
         font-size: 1em;
+    }
+
+    .modal {
+        width: 90%;
+        padding: 20px;
+        font-size: 0.9em;
     }
 }
