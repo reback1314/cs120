@@ -94,34 +94,34 @@ h1 {
 
 @media (max-width: 600px) {
     .main-container {
-        padding: 10px;
+        padding: 5px;
     }
 
     h1 {
         font-size: 1.8em;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .cell {
-        width: 30px;
-        height: 30px;
-        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
     }
 
     .key {
-        width: 20px;
-        height: 20px;
-        font-size: 15px;
+        width: 10px;
+        height: 10px;
+        font-size: 10px;
     }
 
     #word-input {
-        padding: 8px 10px;
+        padding: 6px 8px;
         font-size: 1em;
-        width: 180px;
+        width: 80px;
     }
 
     #submit-button {
-        padding: 8px 10px;
+        padding: 6px 8px;
         font-size: 1em;
     }
 }
