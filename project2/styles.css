@@ -103,25 +103,25 @@ h1 {
     }
 
     .cell {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         font-size: 20px;
     }
 
     .key {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         font-size: 15px;
     }
 
     #word-input {
-        padding: 12px 18px;
+        padding: 8px 10px;
         font-size: 1em;
         width: 180px;
     }
 
     #submit-button {
-        padding: 12px 18px;
+        padding: 8px 10px;
         font-size: 1em;
     }
 }
